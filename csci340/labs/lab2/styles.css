@@ -1,3 +1,7 @@
 header {
   margin: 20px;
 }
+
+.nav-item, .navbar-header {
+  font-family: 'Anton', cursive;
+}
