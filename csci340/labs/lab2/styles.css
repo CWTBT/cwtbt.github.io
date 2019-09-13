@@ -5,3 +5,7 @@ header {
 .nav-item, .navbar-header {
   font-family: 'Anton', cursive;
 }
+
+.col-sm-6 img {
+  width: 100%;
+}
