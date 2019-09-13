@@ -1,25 +1,24 @@
-header {
-  margin: 20px;
-}
-
-.container nav {
+.container-full-width nav {
+  margin: 0;
   padding: 20px;
 }
 
-.container .navbar-header a {
+.container-full-width .navbar-header a {
   font-size: 3em;
 }
 
-.container nav a {
+.container-full-width nav a {
   font-size: 2em;
-}
-
-.jumbotron h2 {
-  font-family: 'Teko', sans-serif;
 }
 
 .jumbotron h1 {
   font-family: 'Anton', sans-serif;
+  color: white;
+}
+
+.jumbotron h2 {
+  font-family: 'Teko', sans-serif;
+  color: white;
 }
 
 .nav-item, .navbar-header {
@@ -27,7 +26,10 @@ header {
 }
 
 .jumbotron {
-  margin: 50px;
+  margin: 0;
+  height: 100vh;
+  background-image: linear-gradient(#c30006, black);
+  background-size: cover;
 }
 
 #image_container {
