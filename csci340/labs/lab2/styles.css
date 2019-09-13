@@ -2,10 +2,39 @@ header {
   margin: 20px;
 }
 
+.container nav {
+  padding: 20px;
+}
+
+.container .navbar-header a {
+  font-size: 3em;
+}
+
+.container nav a {
+  font-size: 2em;
+}
+
+.jumbotron h2 {
+  font-family: 'Teko', sans-serif;
+}
+
+.jumbotron h1 {
+  font-family: 'Anton', sans-serif;
+}
+
 .nav-item, .navbar-header {
   font-family: 'Anton', cursive;
 }
 
+.jumbotron {
+  margin: 50px;
+}
+
+#image_container {
+  padding: 20px;
+}
+
 .col-sm-6 img {
   width: 100%;
+  padding: 10px;
 }
