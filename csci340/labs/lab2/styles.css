@@ -1,24 +1,20 @@
+body {
+  background-image: linear-gradient(#c30006, black);
+  padding-top: 50px;
+  height: 100%;
+}
+
 .container-full-width nav {
-  margin: 0;
   padding: 20px;
 }
 
 .container-full-width .navbar-header a {
   font-size: 3em;
+  color: white;
 }
 
 .container-full-width nav a {
   font-size: 2em;
-}
-
-.jumbotron h1{
-  font-family: 'Anton', sans-serif;
-  color: white;
-}
-
-.jumbotron h2, p {
-  font-family: 'Teko', sans-serif;
-  color: white;
 }
 
 .nav-item, .navbar-header {
@@ -26,17 +22,16 @@
 }
 
 .jumbotron {
-  margin: 0;
-  height: 100vh;
-  background-image: linear-gradient(#c30006, black);
-  background-size: cover;
+  background: none;
 }
 
-#image_container {
-  padding: 20px;
+.jumbotron h1, h2, p {
+  color: white;
+  font-family: 'Anton', cursive;
 }
 
 .col-sm-6 img {
   width: 100%;
-  padding: 10px;
+  margin: 0;
+  padding: 0px;
 }
