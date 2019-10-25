@@ -1,3 +1,12 @@
-.traffic {
+#traffic {
   background-color: red;
+  margin-top: 250px;
+  margin-left: 250px;
+  margin-right: 250px;
+  height: 100px;
+  text-align: center;
+}
+
+p {
+  color: white
 }
