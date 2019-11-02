@@ -1,7 +1,32 @@
-.row {
-  margin: 50px;
+#taco {
+  max-width: 10%;
+  height: auto
 }
 
-.col-lg-6 {
-  text-align: center
+.row {
+  margin: 25px;
+}
+
+body {
+  background-color: #ffff66;
+}
+
+.topbar {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.col-lg-5 {
+  background-color: #ffff99;
+  text-align: center;
+  box-shadow: 10px 10px 5px #b3b300;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Fontdiner Swanky', cursive;
+}
+
+h2, h3, p {
+  font-family: 'Trykker', serif;
 }
