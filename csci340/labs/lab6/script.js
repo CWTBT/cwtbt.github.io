@@ -15,7 +15,7 @@ $(document).ready(function() {
 
   $.ajax({
     dataType: "json",
-    url: "http://taco-randomizer.herokuapp.com/random/",
+    url: "https://taco-randomizer.herokuapp.com/random/",
     success: function(results) {
       console.log(results);
       $(".tacoShell").text(results["shell"]["name"]);
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
     $.ajax({
       dataType: "json",
-      url: "http://taco-randomizer.herokuapp.com/random/",
+      url: "https://taco-randomizer.herokuapp.com/random/",
       success: function(results) {
         console.log(results);
         $(".tacoShell").text(results["shell"]["name"]);
@@ -67,7 +67,7 @@ $(document).ready(function() {
     $.ajax({
       dataType: "json",
       jsonCallback: "getAv",
-      url: "http://taco-randomizer.herokuapp.com/random/",
+      url: "https://taco-randomizer.herokuapp.com/random/",
       success: function(results) {
         console.log(results);
         $(".tacoShell").text(results["shell"]["name"]);
