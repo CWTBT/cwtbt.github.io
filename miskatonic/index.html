@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="styles.css"/>
   <title>Miskatonic Man Chargen</title>
 </head>
 <body>
   <div class="container">
-    <form>
-      <label for="charname">Character Name</label></br>
-      <input type="text" name = "charname">
-      <label for="charname">Character Name</label></br>
-      <input type="number" name = "charage"></br></br>
+    <form id="charform">
+      <label for="charname">Character Name</label>
+      <input type="text" name = "charname"></br>
+      <label for="charname">Character Age</label>
+      <input type="number" name = "charage" min="15" max="89"></br></br>
       <input type = "submit" value="Submit">
-    </form>>
+    </form>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
