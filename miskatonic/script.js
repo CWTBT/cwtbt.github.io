@@ -8,28 +8,32 @@ $(document).ready(function() {
        });
 
       function rollCharacteristics() {
+        setPrimaryChars();
+        setSecondaryChars();
+        console.log(JSON.stringify(charSheet));
+      }
+
+      function setPrimaryChars() {
         let primaryChars = [];
-        let secondaryChars = [];
         for (let i = 0; i < 5; i++) {
             primaryChars.push(rollDice(3) * 5);
-          }
-        
-          charSheet.str = primaryChars[0];
-          charSheet.dex = primaryChars[1];
-          charSheet.app = primaryChars[2];
-          charSheet.con = primaryChars[3];
-          charSheet.pow = primaryChars[4];
+        }
+        charSheet.str = primaryChars[0];
+        charSheet.dex = primaryChars[1];
+        charSheet.app = primaryChars[2];
+        charSheet.con = primaryChars[3];
+        charSheet.pow = primaryChars[4];
+      }
 
+      function setSecondaryChars() {
+        let secondaryChars = [];
         for (let i = 0; i < 4; i++) {
             secondaryChars.push((rollDice(2) + 6) * 5);
         }
-
         charSheet.siz = secondaryChars[0];
         charSheet.int = secondaryChars[1];
         charSheet.edu = secondaryChars[2];
         charSheet.lck = secondaryChars[3];
-
-        console.log(JSON.stringify(charSheet));
       }
 
       function rollDice(dice) {
