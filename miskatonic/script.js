@@ -17,6 +17,8 @@ $(document).ready(function() {
       function rollCharacteristics() {
         setPrimaryChars();
         setSecondaryChars();
+
+
         console.log(JSON.stringify(charSheet));
         ageModify();
         console.log(JSON.stringify(charSheet));
@@ -61,18 +63,15 @@ $(document).ready(function() {
         else  {
           // Offset ages by -40, divide by 10, and round down to end up with a number 0-4
           let ageValue = Math.floor((age - 40) / 10);
-          console.log("ageValue: " + ageValue);
 
           // 5, 10, 20, 40, 80 are the possible mods to the main physical characteristics
           let physMod = 5 * (Math.pow(2, ageValue));
-          console.log("physMod: " + physMod);
 
           // 5, 10, 15, 20, 25 are the possible mods to appearance
           let appMod = 5 * (ageValue + 1);
 
           // 1, 2, 3, 4, 5 are the possible mods to movement
           let movMod = ageValue + 1;
-          console.log("movMod: "+movMod);
 
           let improvementCount = ageValue + 2;
           if (improvementCount > 4) improvementCount = 4;
@@ -85,8 +84,16 @@ $(document).ready(function() {
           charSheet.dex = charSheet.dex - physMod;
           charSheet.con = charSheet.con - physMod;
           charSheet.app = charSheet.app - appMod;
-          charSheet.mov = charSheet.mov - movMod;
+          calculateMov(movMod);
         }
+      }
+
+      function calculateMov(movMod) {
+        if (charSheet.dex < charSheet.siz && charSheet.str < charSheet.siz) charSheet.mov = 7;
+        else if (charSheet.dex < charSheet.siz || charSheet.str < charSheet.siz) charSheet.mov = 8;
+        else charSheet.mov = 9;
+
+        charSheet.mov -= movMod;
       }
 
       function improvementCheck() {
