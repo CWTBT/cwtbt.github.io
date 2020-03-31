@@ -1,10 +1,16 @@
 $(document).ready(function() {
 
     var charSheet = new Object();
+    var name;
+    var age;
     
     $("#charform").submit(function(e) {
         e.preventDefault();
         rollCharacteristics();
+        let formData = $(this).serializeArray();
+
+        name = formData[0]["value"];
+        age = formData[1]["value"]
        });
 
       function rollCharacteristics() {
