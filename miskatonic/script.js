@@ -1,23 +1,41 @@
 $(document).ready(function() {
+
+    var charSheet = new Object();
     
     $("#charform").submit(function(e) {
         e.preventDefault();
-        console.log("Characteristics:" + rollCharacteristics());
-      });
+        rollCharacteristics();
+       });
 
       function rollCharacteristics() {
-        let physChars = [];
+        let primaryChars = [];
+        let secondaryChars = [];
         for (let i = 0; i < 5; i++) {
-            physChars.push(rollDice(3) * 5);
+            primaryChars.push(rollDice(3) * 5);
           }
-        return physChars;
+        
+          charSheet.str = primaryChars[0];
+          charSheet.dex = primaryChars[1];
+          charSheet.app = primaryChars[2];
+          charSheet.con = primaryChars[3];
+          charSheet.pow = primaryChars[4];
+
+        for (let i = 0; i < 4; i++) {
+            secondaryChars.push((rollDice(2) + 6) * 5);
+        }
+
+        charSheet.siz = secondaryChars[0];
+        charSheet.int = secondaryChars[1];
+        charSheet.edu = secondaryChars[2];
+        charSheet.lck = secondaryChars[3];
+
+        console.log(JSON.stringify(charSheet));
       }
 
       function rollDice(dice) {
         let rollSum = 0;
         for (let i = 0; i < dice; i++) {
               let newRoll = (Math.floor(Math.random() * 6) + 1);
-              console.log("Roll: " + newRoll);
               rollSum += newRoll;
           }
           return rollSum
