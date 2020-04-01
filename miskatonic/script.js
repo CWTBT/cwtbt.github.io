@@ -17,11 +17,13 @@ $(document).ready(function() {
       function rollCharacteristics() {
         setPrimaryChars();
         setSecondaryChars();
-
-
-        console.log(JSON.stringify(charSheet));
         ageModify();
-        console.log(JSON.stringify(charSheet));
+        dbAndBuild();
+        charSheet.hp = (charSheet.con + charSheet.siz)/10;
+        charSheet.san = charSheet.pow;
+        charSheet.mp = charSheet.pow/5;
+        charSheet.dodge = charSheet.dex/2;
+
       }
 
       function setPrimaryChars() {
@@ -101,6 +103,34 @@ $(document).ready(function() {
         if (percentRoll > charSheet.edu) {
           let improvement = (Math.floor(Math.random() * 10) + 1);
           charSheet.edu += improvement;
+        }
+      }
+
+      function dbAndBuild() {
+        let buildValue = charSheet.str + charSheet.siz;
+        if (buildValue <= 64) {
+          charSheet.db = "-2";
+          charSheet.build = "-2";
+        }
+
+        else if (buildValue <= 84) {
+          charSheet.db = "-1";
+          charSheet.build = "-1";
+        }
+
+        else if (buildValue <= 124) {
+          charSheet.db = "None";
+          charSheet.build = "0";
+        }
+
+        else if (buildValue <= 164) {
+          charSheet.db = "+1d4";
+          charSheet.build = "+1";
+        }
+
+        else {
+          charSheet.db = "+1d6";
+          charSheet.build - "+2";
         }
       }
 
