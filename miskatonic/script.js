@@ -1,6 +1,28 @@
 $(document).ready(function() {
 
+    
+  
     var charSheet = new Object();
+    var sheet = {
+      "name": "NO_NAME",
+      "age": 0,
+      "occupation": "NONE",
+      "characteristics": {
+              "str": [0,0,0],
+              "dex": [0,0,0],
+              "con": [0,0,0],
+              "app": [0,0,0],
+              "pow": [0,0,0],
+              "siz": [0,0,0],
+              "int": [0,0,0],
+              "edu": [0,0,0],
+              "lck": [0,0,0],
+              "mov": [0,0,0],
+              "db": [0,0,0],
+              "build": [0,0,0]
+      }
+    }
+    console.log(JSON.stringify(sheet));
     var name;
     var age;
     
@@ -12,6 +34,7 @@ $(document).ready(function() {
         age = formData[1]["value"];
 
         rollCharacteristics();
+        console.log(JSON.stringify(charSheet));
        });
 
     function rollCharacteristics() {
