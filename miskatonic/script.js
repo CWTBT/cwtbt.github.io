@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-    
-  
-    var charSheet = new Object();
     var sheet = {
       "name": "NO_NAME",
       "age": 0,
@@ -19,7 +16,11 @@ $(document).ready(function() {
               "lck": [0,0,0],
               "mov": [0,0,0],
               "db": [0,0,0],
-              "build": [0,0,0]
+              "build": [0,0,0],
+              "hp": [0,0,0],
+              "san": [0,0,0],
+              "mp": [0,0,0],
+              "dodge": [0,0,0]
       }
     }
     console.log(JSON.stringify(sheet));
@@ -34,7 +35,7 @@ $(document).ready(function() {
         age = formData[1]["value"];
 
         rollCharacteristics();
-        console.log(JSON.stringify(charSheet));
+        console.log(JSON.stringify(sheet));
        });
 
     function rollCharacteristics() {
@@ -42,10 +43,10 @@ $(document).ready(function() {
     setSecondaryChars();
     ageModify();
     dbAndBuild();
-    charSheet.hp = (charSheet.con + charSheet.siz)/10;
-    charSheet.san = charSheet.pow;
-    charSheet.mp = charSheet.pow/5;
-    charSheet.dodge = charSheet.dex/2;
+    sheet.characteristics.hp[0] = Math.floor((sheet.characteristics.con[0] + sheet.characteristics.siz[0])/10);
+    sheet.characteristics.san[0] = sheet.characteristics.pow[0];
+    sheet.characteristics.mp[0] = sheet.characteristics.pow[0]/5;
+    sheet.characteristics.dodge[0] = Math.floor(sheet.characteristics.dex[0]/2);
     }
 
     function setPrimaryChars() {
@@ -53,11 +54,11 @@ $(document).ready(function() {
       for (let i = 0; i < 5; i++) {
           primaryChars.push(rollDice(3) * 5);
       }
-      charSheet.str = primaryChars[0];
-      charSheet.dex = primaryChars[1];
-      charSheet.app = primaryChars[2];
-      charSheet.con = primaryChars[3];
-      charSheet.pow = primaryChars[4];
+      sheet.characteristics.str[0] = primaryChars[0];
+      sheet.characteristics.dex[0] = primaryChars[1];
+      sheet.characteristics.app[0] = primaryChars[2];
+      sheet.characteristics.con[0] = primaryChars[3];
+      sheet.characteristics.pow[0] = primaryChars[4];
     }
 
     function setSecondaryChars() {
@@ -65,19 +66,19 @@ $(document).ready(function() {
       for (let i = 0; i < 4; i++) {
           secondaryChars.push((rollDice(2) + 6) * 5);
       }
-      charSheet.siz = secondaryChars[0];
-      charSheet.int = secondaryChars[1];
-      charSheet.edu = secondaryChars[2];
-      charSheet.lck = secondaryChars[3];
+      sheet.characteristics.siz[0] = secondaryChars[0];
+      sheet.characteristics.int[0] = secondaryChars[1];
+      sheet.characteristics.edu[0] = secondaryChars[2];
+      sheet.characteristics.lck[0] = secondaryChars[3];
     }
 
     function ageModify() {
       if (age <= 19) {
-        charSheet.str -= 5;
-        charSheet.siz -= 5;
-        charSheet.edu -= 5;
+        sheet.characteristics.str[0] -= 5;
+        sheet.characteristics.siz[0] -= 5;
+        sheet.characteristics.edu[0] -= 5;
         let newLuck = rollDice(2);
-        if (newLuck > charSheet.lck) charSheet.lck = newLuck;
+        if (newLuck > sheet.characteristics.lck[0]) sheet.characteristics.lck[0] = newLuck;
       }
       
       else if (age <= 39) {
@@ -104,55 +105,59 @@ $(document).ready(function() {
           improvementCheck();
         }
 
-        charSheet.str = charSheet.str - physMod;
-        charSheet.dex = charSheet.dex - physMod;
-        charSheet.con = charSheet.con - physMod;
-        charSheet.app = charSheet.app - appMod;
+        sheet.characteristics.str[0] = sheet.characteristics.str[0] - physMod;
+        sheet.characteristics.dex[0] = sheet.characteristics.dex[0] - physMod;
+        sheet.characteristics.con[0] = sheet.characteristics.con[0] - physMod;
+        sheet.characteristics.app[0] = sheet.characteristics.app[0] - appMod;
         calculateMov(movMod);
       }
     }
 
     function calculateMov(movMod) {
-      if (charSheet.dex < charSheet.siz && charSheet.str < charSheet.siz) charSheet.mov = 7;
-      else if (charSheet.dex < charSheet.siz || charSheet.str < charSheet.siz) charSheet.mov = 8;
-      else charSheet.mov = 9;
+      if (sheet.characteristics.dex[0] < sheet.characteristics.siz[0] && sheet.characteristics.str[0] < sheet.characteristics.siz[0]) {
+        sheet.characteristics.mov[0] = 7;
+      }
+      else if (sheet.characteristics.dex[0] < sheet.characteristics.siz[0] || sheet.characteristics.str[0] < sheet.characteristics.siz[0]) {
+        sheet.characteristics.mov[0] = 8;
+      }
+      else sheet.characteristics.mov[0] = 9;
 
-      charSheet.mov -= movMod;
+      sheet.characteristics.mov[0] -= movMod;
     }
 
     function improvementCheck() {
       let percentRoll = (Math.floor(Math.random() * 100) + 1);
-      if (percentRoll > charSheet.edu) {
+      if (percentRoll > sheet.characteristics.edu) {
         let improvement = (Math.floor(Math.random() * 10) + 1);
-        charSheet.edu += improvement;
+        sheet.characteristics.edu += improvement;
       }
     }
 
     function dbAndBuild() {
-      let buildValue = charSheet.str + charSheet.siz;
+      let buildValue = sheet.characteristics.str[0] + sheet.characteristics.siz[0];
       if (buildValue <= 64) {
-        charSheet.db = "-2";
-        charSheet.build = "-2";
+        sheet.characteristics.db[0] = "-2";
+        sheet.characteristics.build[0] = "-2";
       }
 
       else if (buildValue <= 84) {
-        charSheet.db = "-1";
-        charSheet.build = "-1";
+        sheet.characteristics.db[0] = "-1";
+        sheet.characteristics.build[0] = "-1";
       }
 
       else if (buildValue <= 124) {
-        charSheet.db = "None";
-        charSheet.build = "0";
+        sheet.characteristics.db[0] = "None";
+        sheet.characteristics.build[0] = "0";
       }
 
       else if (buildValue <= 164) {
-        charSheet.db = "+1d4";
-        charSheet.build = "+1";
+        sheet.characteristics.db[0] = "+1d4";
+        sheet.characteristics.build[0] = "+1";
       }
 
       else {
-        charSheet.db = "+1d6";
-        charSheet.build - "+2";
+        sheet.characteristics.db[0] = "+1d6";
+        sheet.characteristics.build[0] - "+2";
       }
     }
 
