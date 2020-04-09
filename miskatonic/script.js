@@ -23,7 +23,7 @@ $(document).ready(function() {
               "dodge": [0,0,0]
       }
     }
-    console.log(JSON.stringify(sheet));
+
     var name;
     var age;
     
