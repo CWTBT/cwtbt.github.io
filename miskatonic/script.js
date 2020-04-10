@@ -26,6 +26,9 @@ $(document).ready(function() {
 
     var name;
     var age;
+    var occupation;
+    var osp; //occupation skill points
+    var psp; //personal skill points
     
     $("#charform").submit(function(e) {
         e.preventDefault();
@@ -36,7 +39,13 @@ $(document).ready(function() {
 
         rollCharacteristics();
         console.log(JSON.stringify(sheet));
+        $('#occupationform').show();
        });
+
+    $("#occupationform").submit(function(e) {
+      e.preventDefault();
+      $("#skillsform").show();
+    });
 
     function rollCharacteristics() {
     setPrimaryChars();
