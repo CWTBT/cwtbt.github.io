@@ -24,6 +24,42 @@ $(document).ready(function() {
       }
     }
 
+    var skillNames = [
+      "Fast Talk",
+      "Fighting (Brawl)",
+      "Firearms (Handgun)",
+      "Firearms (Rifle/Shotgun)",
+      "First Aid",
+      "History",
+      "Intimidate",
+      "Jump",
+      "Language (Other)",
+      "Language (Own)",
+      "Law",
+      "Library Use",
+      "Listen",
+      "Locksmith",
+      "Mech. Repair",
+      "Medicine",
+      "Natural World",
+      "Navigate",
+      "Occult",
+      "Op. Hv. Machine",
+      "Persuade",
+      "Pilot",
+      "Psychology",
+      "Psychoanalysis",
+      "Ride",
+      "Science",
+      "Sleight of Hand",
+      "Spot Hidden",
+      "Stealth",
+      "Survival",
+      "Swim",
+      "Throw",
+      "Track"
+  ];
+
     var name;
     var age;
     var occupation;
@@ -44,7 +80,8 @@ $(document).ready(function() {
 
     $("#occupationform").submit(function(e) {
       e.preventDefault();
-      $("#skillsform").show();
+      generateTable('#skillsform');
+      $('#skillsform').show();
     });
 
     function rollCharacteristics() {
@@ -178,5 +215,24 @@ $(document).ready(function() {
         }
         return rollSum;
     }
+
+    function generateTable(formname) {
+      let form = document.getElementById("skillsform");
+      let table = document.createElement("TABLE");
+      let tbody = document.createElement("tbody");
+      
+      for (let i = 0; i < skillNames.length; i+=3) {
+        let row = document.createElement("tr");
+        for (let j = 0; j < 3; j++) {
+          let cell = document.createElement("td");
+          let name = document.createTextNode(skillNames[i+j])
+          cell.appendChild(name);
+          row.appendChild(cell);
+        }
+        tbody.appendChild(row);
+      }
+      table.appendChild(tbody);
+      form.appendChild(table);
+  }
 
 });
