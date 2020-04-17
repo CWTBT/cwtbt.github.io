@@ -122,6 +122,7 @@ $(document).ready(function() {
         age = formData[1]["value"];
 
         rollCharacteristics();
+        setSkillBases();
         console.log(JSON.stringify(sheet));
         $('#occupationform').show();
        });
@@ -257,6 +258,17 @@ $(document).ready(function() {
         sheet.characteristics.db[0] = "+1d6";
         sheet.characteristics.build[0] - "+2";
       }
+    }
+
+    function assignStat(stat, value) {
+      stat[0] = value;
+      stat[1] = Math.floor(value/2); //half value
+      stat[2] = Math.floor(value/5); //fifth value
+    }
+
+    function setSkillBases() {
+      assignStat(sheet.skills["Dodge"], Math.floor(sheet.characteristics.dex[0]/2));
+      assignStat(sheet.skills["Language (Own)"][0], sheet.characteristics.edu[0]);
     }
 
     function rollDice(dice) {
