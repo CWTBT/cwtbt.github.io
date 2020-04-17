@@ -5,22 +5,70 @@ $(document).ready(function() {
       "age": 0,
       "occupation": "NONE",
       "characteristics": {
-              "str": [0,0,0],
-              "dex": [0,0,0],
-              "con": [0,0,0],
-              "app": [0,0,0],
-              "pow": [0,0,0],
-              "siz": [0,0,0],
-              "int": [0,0,0],
-              "edu": [0,0,0],
-              "lck": [0,0,0],
-              "mov": [0,0,0],
-              "db": [0,0,0],
-              "build": [0,0,0],
-              "hp": [0,0,0],
-              "san": [0,0,0],
-              "mp": [0,0,0],
-              "dodge": [0,0,0]
+        "str": [0,0,0],
+        "dex": [0,0,0],
+        "con": [0,0,0],
+        "app": [0,0,0],
+        "pow": [0,0,0],
+        "siz": [0,0,0],
+        "int": [0,0,0],
+        "edu": [0,0,0],
+        "lck": [0,0,0],
+        "mov": [0,0,0],
+        "db": [0,0,0],
+        "build": [0,0,0],
+        "hp": [0,0,0],
+        "san": [0,0,0],
+        "mp": [0,0,0],
+        "dodge": [0,0,0]
+      },
+      "skills": {
+        "Accounting": [5,0,0],
+        "Anthropology": [1,0,0],
+        "Appraise": [5,0,0],
+        "Archaeology": [1,0,0],
+        "Art/Craft": [5,0,0],
+        "Charm": [15,0,0],
+        "Climb": [20,0,0],
+        "Credit Rating": [0,0,0],
+        "Cthulhu Mythos": [0,0,0],
+        "Disguise": [5,0,0],
+        "Dodge": [0,0,0],
+        "Drive Auto": [20,0,0],
+        "Elec Repair": [10,0,0],
+        "Fast Talk": [5,0,0],
+        "Fighting (Brawl)": [25,0,0],
+        "Firearms (Handgun)": [20,0,0],
+        "Firearms (Rifle/Shotgun)": [25,0,0],
+        "First Aid": [30,0,0],
+        "History": [5,0,0],
+        "Intimidate": [15,0,0],
+        "Jump": [20,0,0],
+        "Language (Other)": [1,0,0],
+        "Language (Own)": [0,0,0],
+        "Law": [5,0,0],
+        "Library Use": [20,0,0],
+        "Listen": [20,0,0],
+        "Locksmith": [1,0,0],
+        "Mech. Repair": [10,0,0],
+        "Medicine": [1,0,0],
+        "Natural World": [10,0,0],
+        "Navigate": [10,0,0],
+        "Occult": [5,0,0],
+        "Op. Hv. Machine": [1,0,0],
+        "Persuade": [10,0,0],
+        "Pilot": [1,0,0],
+        "Psychology": [10,0,0],
+        "Psychoanalysis": [1,0,0],
+        "Ride": [5,0,0],
+        "Science": [1,0,0],
+        "Sleight of Hand": [10,0,0],
+        "Spot Hidden": [25,0,0],
+        "Stealth": [20,0,0],
+        "Survival": [10,0,0],
+        "Swim": [20,0,0],
+        "Throw": [20,0,0],
+        "Track": [10,0,0]
       }
     }
 
@@ -82,6 +130,10 @@ $(document).ready(function() {
       e.preventDefault();
       generateTable('#skillsform');
       $('#skillsform').show();
+    });
+
+    $("#skillsform").submit(function(e) {
+      
     });
 
     function rollCharacteristics() {
