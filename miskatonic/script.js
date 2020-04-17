@@ -153,11 +153,11 @@ $(document).ready(function() {
       for (let i = 0; i < 5; i++) {
           primaryChars.push(rollDice(3) * 5);
       }
-      sheet.characteristics.str[0] = primaryChars[0];
-      sheet.characteristics.dex[0] = primaryChars[1];
-      sheet.characteristics.app[0] = primaryChars[2];
-      sheet.characteristics.con[0] = primaryChars[3];
-      sheet.characteristics.pow[0] = primaryChars[4];
+      assignStat(sheet.characteristics.str, primaryChars[0]);
+      assignStat(sheet.characteristics.dex, primaryChars[1]);
+      assignStat(sheet.characteristics.app, primaryChars[2]);
+      assignStat(sheet.characteristics.con, primaryChars[3]);
+      assignStat(sheet.characteristics.pow, primaryChars[4]);
     }
 
     function setSecondaryChars() {
@@ -165,10 +165,10 @@ $(document).ready(function() {
       for (let i = 0; i < 4; i++) {
           secondaryChars.push((rollDice(2) + 6) * 5);
       }
-      sheet.characteristics.siz[0] = secondaryChars[0];
-      sheet.characteristics.int[0] = secondaryChars[1];
-      sheet.characteristics.edu[0] = secondaryChars[2];
-      sheet.characteristics.lck[0] = secondaryChars[3];
+      assignStat(sheet.characteristics.siz, secondaryChars[0]);
+      assignStat(sheet.characteristics.int, secondaryChars[1]);
+      assignStat(sheet.characteristics.edu, secondaryChars[2]);
+      assignStat(sheet.characteristics.lck, secondaryChars[3]);
     }
 
     function ageModify() {
