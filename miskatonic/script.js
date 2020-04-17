@@ -222,6 +222,7 @@ $(document).ready(function() {
         let row = $("<tr>");
         for (let j = 0; j < 3; j++) {
           let cell = $("<td>").text(skillNames[i+j]);
+          cell.append($("<input>").attr("id",skillNames[i+j]).attr("type", "number"));
           row.append(cell);
         }
         table.append(row);
