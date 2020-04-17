@@ -217,22 +217,16 @@ $(document).ready(function() {
     }
 
     function generateTable(formname) {
-      let form = document.getElementById("skillsform");
-      let table = document.createElement("TABLE");
-      let tbody = document.createElement("tbody");
-      
+      let table = $("<table>");
       for (let i = 0; i < skillNames.length; i+=3) {
-        let row = document.createElement("tr");
+        let row = $("<tr>");
         for (let j = 0; j < 3; j++) {
-          let cell = document.createElement("td");
-          let name = document.createTextNode(skillNames[i+j])
-          cell.appendChild(name);
-          row.appendChild(cell);
+          let cell = $("<td>").text(skillNames[i+j]);
+          row.append(cell);
         }
-        tbody.appendChild(row);
+        table.append(row);
       }
-      table.appendChild(tbody);
-      form.appendChild(table);
-  }
+      $("#skillsform").append(table);
+    }
 
 });
