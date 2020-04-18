@@ -73,6 +73,19 @@ $(document).ready(function() {
     }
 
     var skillNames = [
+      "Accounting",
+      "Anthropology",
+      "Appraise",
+      "Archaeology",
+      "Art/Craft",
+      "Charm",
+      "Climb",
+      "Credit Rating",
+      "Cthulhu Mythos",
+      "Disguise",
+      "Dodge",
+      "Drive Auto",
+      "Elec Repair",
       "Fast Talk",
       "Fighting (Brawl)",
       "Firearms (Handgun)",
@@ -285,6 +298,7 @@ $(document).ready(function() {
       for (let i = 0; i < skillNames.length; i+=3) {
         let row = $("<tr>");
         for (let j = 0; j < 3; j++) {
+          if (i+j > skillNames.length - 1) break;
           let cell = $("<td>").text(skillNames[i+j]);
           cell.append($("<input>").attr("id",skillNames[i+j]).attr("type", "number"));
           row.append(cell);
