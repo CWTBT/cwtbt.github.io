@@ -139,6 +139,7 @@ $("#charform").submit(function(e) {
 $("#occupationform").submit(function(e) {
   e.preventDefault();
   generateTable('#skillsform');
+  calcSkillPoints($("#osp").val());
   $('#skillsform').show();
   $('#points').show();
 });
@@ -308,4 +309,11 @@ function generateTable(formname) {
     table.append(row);
   }
   $("#skillsform").append(table);
+}
+
+function calcSkillPoints(value) {
+  if (value == "edu") osp = sheet.characteristics.edu[0] * 4;
+  else {
+    console.log(sheet.characteristics[value][0]);
+  }
 }
