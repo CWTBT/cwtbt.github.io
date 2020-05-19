@@ -300,7 +300,8 @@ function generateTable(formname) {
       if (i+j > skillNames.length - 1) break;
       let skill = skillNames[i+j]
       let cell = $("<td>").text(skill+": ");
-      cell.append($("<input>").attr("id",skill).attr("type", "number"));
+      cell.append($("<input>").attr("id","chk"+skill).attr("type", "checkbox"));
+      cell.append($("<input>").attr("id",skill).attr("type", "number").attr("class", "skill_in").attr("disabled"));
       row.append(cell);
       
       $(cell).keyup(function() {
@@ -322,7 +323,7 @@ function calcSkillPoints(value) {
 
   //Personal Skill Points = INT x 2
   psp = sheet.characteristics.int[0] * 2;
-  
+
   $('#osp_counter').text("Occupational Skill Points: "+osp);
   $('#psp_counter').text("Personal Skill Points: "+psp);
 }
