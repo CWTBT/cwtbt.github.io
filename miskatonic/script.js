@@ -141,7 +141,8 @@ $("#occupationform").submit(function(e) {
   generateTable('#skillsform');
   calcSkillPoints($("#osp").val());
   $('#skillsform').show();
-  $('#points').show();
+  $('#osp_counter').show();
+  $('#psp_counter').show();
 });
 
 $("#skillsform").submit(function(e) {
@@ -312,8 +313,16 @@ function generateTable(formname) {
 }
 
 function calcSkillPoints(value) {
+  // Occupational Skill Points = EDU x 4
   if (value == "edu") osp = sheet.characteristics.edu[0] * 4;
   else {
-    console.log(sheet.characteristics[value][0]);
+    // Occupational Skill Points = EDU x 2 + (other attribute) x 2
+    osp = sheet.characteristics[value][0] * 2 + sheet.characteristics.edu[0] * 2;
   }
+
+  //Personal Skill Points = INT x 2
+  psp = sheet.characteristics.int[0] * 2;
+  
+  $('#osp_counter').text("Occupational Skill Points: "+osp);
+  $('#psp_counter').text("Personal Skill Points: "+psp);
 }
