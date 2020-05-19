@@ -299,6 +299,10 @@ function generateTable(formname) {
       let cell = $("<td>").text(skill+": ");
       cell.append($("<input>").attr("id",skill).attr("type", "number"));
       row.append(cell);
+      
+      $(cell).keyup(function() {
+        console.log(skill);
+      });
     }
     table.append(row);
   }
