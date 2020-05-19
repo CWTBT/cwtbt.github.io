@@ -1,0 +1,8 @@
+body {
+    background-image: url(divs2.png);
+}
+
+.container {
+    background-image: url(divs.png);
+    box-shadow: 5px 5px rgba(0,0,0,0.2);
+}
