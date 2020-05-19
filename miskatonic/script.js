@@ -140,6 +140,7 @@ $("#occupationform").submit(function(e) {
   e.preventDefault();
   generateTable('#skillsform');
   $('#skillsform').show();
+  $('#points').show();
 });
 
 $("#skillsform").submit(function(e) {
