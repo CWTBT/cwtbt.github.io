@@ -15,3 +15,7 @@ input[type=text], input[type=number] {
     background-image: url(divs.png);
     box-shadow: 5px 5px 5px rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.2);
 }
+
+#chardiv, #occdiv, #skillsdiv {
+    display:none;
+}

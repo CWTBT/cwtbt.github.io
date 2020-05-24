@@ -7,7 +7,7 @@
   <title>Miskatonic Man Chargen</title>
 </head>
 <body>
-  <div class="container">
+  <div id="chardiv" class="container">
     <form id="charform">
       <label for="charname">Character Name</label>
       <input type="text" name = "charname"></br>
@@ -16,8 +16,8 @@
       <input type = "submit" value="Submit">
     </form>
   </div>
-  <div class="container">
-    <form id="occupationform" hidden>
+  <div id="occdiv" class="container">
+    <form id="occupationform">
       <label for="occupation">Occupation</label>
       <input type="text" name="occupation"></br>
       <label for="osp">Occupation Skill Points</label></br>
@@ -31,7 +31,7 @@
       </select></br>
     </form>
   </div>
-  <div class="container">
+  <div id="skillsdiv" class="container">
     <form id="skillsform"></form>
   </div>
   <h3 id="osp_counter" hidden>Occupational Skill Points: 0</h3>

@@ -123,6 +123,10 @@ var occupation;
 var osp; //occupation skill points
 var psp; //personal skill points
 
+$(document).ready(function(e) {
+  $("#chardiv").css("display","block");
+});
+
 $("#charform").submit(function(e) {
     e.preventDefault();
 
@@ -133,14 +137,14 @@ $("#charform").submit(function(e) {
     rollCharacteristics();
     setSkillBases();
     console.log(JSON.stringify(sheet));
-    $('#occupationform').show();
+    $("#occdiv").css("display","block");
     });
 
 $("#occupationform").submit(function(e) {
   e.preventDefault();
   generateTable('#skillsform');
   calcSkillPoints($("#osp").val());
-  $('#skillsform').show();
+  $("#skillsdiv").css("display","block");
   $('#osp_counter').show();
   $('#psp_counter').show();
 });
