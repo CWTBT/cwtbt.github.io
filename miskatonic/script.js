@@ -150,7 +150,7 @@ $("#occupationform").submit(function(e) {
 });
 
 $("#skillsform").submit(function(e) {
-  
+  e.preventDefault();
 });
 
 function rollCharacteristics() {
@@ -304,8 +304,8 @@ function generateTable(formname) {
       if (i+j > skillNames.length - 1) break;
       let skill = skillNames[i+j]
       let cell = $("<td>").text(skill+": ");
-      cell.append($("<input>").attr("id","chk"+skill).attr("type", "checkbox"));
-      cell.append($("<input>").attr("id",skill).attr("type", "number").attr("class", "skill_in").attr("disabled"));
+      cell.append($("<input>").attr("id","chk"+skill).attr("class", "skill_chk").attr("type", "checkbox"));
+      cell.append($("<input>").attr("id",skill).attr("type", "number").attr("class", "skill_in").prop("disabled", true));
       row.append(cell);
       
       $(cell).keyup(function() {
@@ -314,7 +314,14 @@ function generateTable(formname) {
     }
     table.append(row);
   }
+  let form_button = $("<input>").attr("type","button").prop("value","Submit Occupation Skills");
+  form_button.click(function(e) {
+    form_button.attr("type", "submit").attr("type","submit").prop("value", "Submit Skills");
+    $(".skill_in").prop("disabled", false);
+    $(".skill_chk").prop("disabled", true);
+  });
   $("#skillsform").append(table);
+  $("#skillsform").append(form_button);
 }
 
 function calcSkillPoints(value) {
