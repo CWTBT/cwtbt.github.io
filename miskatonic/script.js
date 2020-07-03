@@ -124,6 +124,7 @@ var osp; //occupation skill points
 var psp; //personal skill points
 
 $(document).ready(function(e) {
+  generateTable('#skillsform');
   $("#chardiv").css("display","block");
 });
 
@@ -142,7 +143,6 @@ $("#charform").submit(function(e) {
 
 $("#occupationform").submit(function(e) {
   e.preventDefault();
-  generateTable('#skillsform');
   calcSkillPoints($("#osp").val());
   $("#skillsdiv").css("display","block");
   $('#osp_counter').show();
@@ -151,6 +151,10 @@ $("#occupationform").submit(function(e) {
 
 $("#skillsform").submit(function(e) {
   e.preventDefault();
+});
+
+$("#skillsform").on("focusout", ".skill_in", function() {
+  console.log($(this).val());
 });
 
 function rollCharacteristics() {
@@ -307,10 +311,6 @@ function generateTable(formname) {
       cell.append($("<input>").attr("id","chk"+skill).attr("class", "skill_chk").attr("type", "checkbox"));
       cell.append($("<input>").attr("id",skill).attr("type", "number").attr("class", "skill_in").prop("disabled", true));
       row.append(cell);
-      
-      $(cell).keyup(function() {
-        console.log(skill);
-      });
     }
     table.append(row);
   }
